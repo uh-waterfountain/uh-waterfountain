@@ -11,10 +11,20 @@ import { Stuffs } from '../../api/stuff/Stuff';
 const formSchema = new SimpleSchema({
   name: String,
   location: Number,
-  rating: {
+  type: {
+    type: String,
+    allowedValues: ['Water bottle refillable', 'Not water bottle refillable'],
+    defaultValue: 'Not water bottle refillable',
+  },
+  quality: {
     type: String,
     allowedValues: ['excellent', 'good', 'fair', 'poor'],
     defaultValue: 'good',
+  },
+  rating: {
+    type: Number,
+    allowedValues: ['1', '2', '3', '4', '5'],
+    defaultValue: '3',
   },
 });
 
@@ -23,9 +33,9 @@ class AddFountain extends React.Component {
 
   /** On submit, insert the data. */
   submit(data, formRef) {
-    const { name, location, rating } = data;
+    const { name, location, quality, rating} = data;
     const owner = Meteor.user().username;
-    Stuffs.insert({ name, location, rating, owner },
+    Stuffs.insert({ name, location, quality, rating, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -46,7 +56,9 @@ class AddFountain extends React.Component {
             <AutoForm ref={ref => { fRef = ref; }} schema={formSchema} onSubmit={data => this.submit(data, fRef)} >
               <Segment>
                 <TextField name='name'/>
-                <NumField name='location' decimal={false}/>
+                <NumField name='location'/>
+                <SelectField name='type'/>
+                <SelectField name='quality'/>
                 <SelectField name='rating'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
