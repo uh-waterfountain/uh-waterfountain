@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Image, Header, Dropdown, Container, Button, Icon } from 'semantic-ui-react';
+import { Grid, Container, Button, Icon } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
 
 /** A simple static component to render some text for the landing page. */
