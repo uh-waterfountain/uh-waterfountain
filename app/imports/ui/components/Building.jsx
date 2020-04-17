@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Image } from 'semantic-ui-react';
+import { Card } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
@@ -10,11 +10,10 @@ class Building extends React.Component {
         <Card centered href='#link-placeholder'>
           <Card.Content>
             <Card.Header>{this.props.building.buildingName}</Card.Header>
-            <Image
-                size='medium'
+            <img
                 src={this.props.building.image}
-                width='auto'
-                height='100px'
+                height={150}
+                width={262}
             />
           </Card.Content>
         </Card>
