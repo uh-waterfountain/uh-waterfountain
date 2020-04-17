@@ -73,7 +73,7 @@ class ListFountain extends React.Component {
   renderPage() {
     return (
         <Container >
-          <Header as="h2" textAlign="center">List of Buildings with Fountains</Header>
+          <Header as="h2" textAlign="center" inverted>List of Buildings with Fountains</Header>
           <Card.Group>
             {this.buildings.map((building, index) => <Building key={index} building={building}/>)}
           </Card.Group>

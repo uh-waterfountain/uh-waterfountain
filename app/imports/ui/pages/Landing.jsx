@@ -5,7 +5,9 @@ import { NavLink } from 'react-router-dom';
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
   render() {
+    const menuStyle = { marginBottom: '10px', paddingTop: '15px' };
     return (
+        <div style={menuStyle}>
         <Grid className='landing-background'>
           <Grid className='landing-text' container stackable centered columns={1}>
             <Grid.Column textAlign='left'>
@@ -31,6 +33,7 @@ class Landing extends React.Component {
           </Button.Group>
           </Grid>
         </Grid>
+        </div>
     );
   }
 }

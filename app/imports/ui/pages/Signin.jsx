@@ -45,10 +45,10 @@ export default class Signin extends React.Component {
     return (
         <div style={menuStyle} className="ui grid">
           <div className="four wide top attached centered middle aligned horizontally padded column">
-            <Header as="h2" textAlign="centered">
+            <Header as="h2" textAlign="centered" inverted>
               Login to your account
             </Header>
-            <Form onSubmit={this.submit}>
+            <Form onSubmit={this.submit} inverted>
                 <Form.Input
                     label="Email"
                     icon="user"
