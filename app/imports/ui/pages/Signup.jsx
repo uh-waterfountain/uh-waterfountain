@@ -39,10 +39,11 @@ class Signup extends React.Component {
       return <Redirect to={from}/>;
     }
     return (
+        <div className='signup-background'>
       <Container>
         <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
-          <Grid.Column>
-            <Header as="h2" textAlign="center">
+          <Grid.Column className='signup-column'>
+            <Header as="h2" textAlign="center" className='signup'>
               Register your account
             </Header>
             <Form onSubmit={this.submit}>
@@ -81,8 +82,14 @@ class Signup extends React.Component {
               />
             )}
           </Grid.Column>
+          <Grid.Column className='signup-column'>
+            <Header as="h3" textAlign="center" className='signup'
+            >Signing up for UH Water Connoisseur is fast and free
+              - Get access to locations & ratings of every water fountain on campus!</Header>
+          </Grid.Column>
         </Grid>
       </Container>
+        </div>
     );
   }
 }
