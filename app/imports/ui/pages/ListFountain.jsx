@@ -1,14 +1,30 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Table, Header, Loader } from 'semantic-ui-react';
+import { Container, Header, Loader, Card } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Stuffs } from '../../api/stuff/Stuff';
-import { Rating } from 'semantic-ui-react'
-import StuffItem from '../components/FountainItem';
+import Building from '/imports/ui/components/Building';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListFountain extends React.Component {
+  buildings = [{
+    buildingName: 'POST',
+    image: 'https://www.staradvertiser.com/wp-content/uploads/2017/01/web1_CTY-UH-Explosion-Report-084.jpg',
+  },
+    {
+      buildingName: 'Kuykendall',
+      image: 'https://bloximages.newyork1.vip.townnews.com/manoanow.org/' +
+          'content/tncms/assets/v3/editorial/f/7c/f7c643d8-c908-11e3-abf2-0017a43b2370/535497a530bdc.' +
+          'image.jpg?resize=400%2C189',
+    },
+    {
+      buildingName: 'ART',
+    },
+    {
+      buildingName: 'Moore',
+    },
+  ];
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
@@ -17,25 +33,12 @@ class ListFountain extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
-
     return (
         <Container>
-          <Header as="h2" textAlign="center">List Fountains</Header>
-          <Table celled>
-            <Table.Header>
-              <Table.Row>
-                <Table.HeaderCell>Name</Table.HeaderCell>
-                <Table.HeaderCell>Location</Table.HeaderCell>
-                <Table.HeaderCell>Type</Table.HeaderCell>
-                <Table.HeaderCell>Water Quality</Table.HeaderCell>
-                <Table.HeaderCell>Rating</Table.HeaderCell>
-                <Table.HeaderCell>Edit</Table.HeaderCell>
-              </Table.Row>
-            </Table.Header>
-            <Table.Body>
-              {this.props.stuffs.map((stuff) => <StuffItem key={stuff._id} stuff={stuff} />)}
-            </Table.Body>
-          </Table>
+          <Header as="h2" textAlign="center">List Buildings with Fountains</Header>
+          <Card.Group>
+            {this.buildings.map((building, index) => <Building key={index} building={building}/>)}
+          </Card.Group>
         </Container>
     );
   }
