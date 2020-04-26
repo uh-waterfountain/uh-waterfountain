@@ -18,4 +18,20 @@
   color: #222629;
   font-size: 350%;
   text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+<<<<<<< Updated upstream
+=======
+}
+.signup-background {
+  background: url('https://www.thegreenhead.com/imgs/xl/elkay-ezh2o-filtered-water-bottle-filling-station-water-fountain-xl.jpg') no-repeat center center fixed;
+  background-size: cover;
+  height: 650px;
+}
+
+.signup {
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+}
+
+.signup-column {
+  margin-top: 100px;
+>>>>>>> Stashed changes
 }
