@@ -45,7 +45,7 @@ class Signup extends React.Component {
         <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
           <Grid.Column className='signup-column'>
             <Header as="h2" textAlign="center" className='signup' inverted>
-              Register your account
+              Create your account
             </Header>
             <Form onSubmit={this.submit}>
               <Segment stacked>
@@ -67,7 +67,7 @@ class Signup extends React.Component {
                   type="password"
                   onChange={this.handleChange}
                 />
-                <Form.Button content="Submit"/>
+                <Form.Button content="Create"/>
               </Segment>
             </Form>
             <Message>
