@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, Redirect } from 'react-router-dom';
-import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
+import { Link, Redirect, withRouter } from 'react-router-dom';
+import { Meteor } from 'meteor/meteor';
+import { withTracker } from 'meteor/react-meteor-data';
+import { Container, Dropdown, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 import { Accounts } from 'meteor/accounts-base';
 
 /**
@@ -33,53 +35,7 @@ class Account extends React.Component {
     }
     return (
         <div style={menuStyle} className='signup-background'>
-          <Container>
-            <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
-              <Grid.Column className='signup-column'>
-                <Header as="h2" textAlign="center" className='signup'>
-                  Register your account
-                </Header>
-                <Form onSubmit={this.submit}>
-                  <Segment stacked>
-                    <Form.Input
-                        label="Email"
-                        icon="user"
-                        iconPosition="left"
-                        name="email"
-                        type="email"
-                        placeholder="E-mail address"
-                        onChange={this.handleChange}
-                    />
-                    <Form.Input
-                        label="Password"
-                        icon="lock"
-                        iconPosition="left"
-                        name="password"
-                        placeholder="Password"
-                        type="password"
-                        onChange={this.handleChange}
-                    />
-                    <Form.Button content="Submit"/>
-                  </Segment>
-                </Form>
-
-                {this.state.error === '' ? (
-                    ''
-                ) : (
-                    <Message
-                        error
-                        header="Changes were not successful"
-                        content={this.state.error}
-                    />
-                )}
-              </Grid.Column>
-              <Grid.Column className='signup-column'>
-                <Header as="h3" textAlign="center" className='signup'
-                >Signing up for UH Water Connoisseur is fast and free
-                  - Get access to locations & ratings of every water fountain on campus!</Header>
-              </Grid.Column>
-            </Grid>
-          </Container>
+          <Dropdown text={this.props.currentUser}/>
         </div>
     );
   }
@@ -88,6 +44,12 @@ class Account extends React.Component {
 /** Ensure that the React Router location object is available in case we need to redirect. */
 Account.propTypes = {
   location: PropTypes.object,
+  currentUser: PropTypes.string,
 };
 
-export default Account;
+/** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
+const AccountContainer = withTracker(() => ({
+  currentUser: Meteor.user() ? Meteor.user().username : '',
+}))(Account);
+
+export default withRouter(AccountContainer);
