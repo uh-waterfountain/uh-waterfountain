@@ -5,6 +5,8 @@ import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Container, Dropdown, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 import { Accounts } from 'meteor/accounts-base';
+import { Stuffs } from '../../api/stuff/Stuff';
+import swal from 'sweetalert';
 
 /**
  * Signup component is similar to signin component, but we create a new user instead.
@@ -21,21 +23,75 @@ class Account extends React.Component {
     this.setState({ [name]: value });
   }
 
-  /** Handle Signup submission. Create user account and a profile entry, then redirect to the home page. */
+  /** Handle Account submission. Take in oldPassword and replace with newPassword. */
   submit = () => {
+    const { oldPassword, newPassword } = this.state;
+    Accounts.changePassword(oldPassword, newPassword, (err) => {
+      if (err) {
+        this.setState({ error: err.reason });
+      } else {
+        this.setState({ error: '', redirectToReferer: true });
+      }
+    });
   }
 
   /** Display the signup form. Redirect to add page after successful registration and login. */
   render() {
     const menuStyle = { marginBottom: '10px', paddingTop: '15px' };
-    const { from } = this.props.location.state || { from: { pathname: '/add' } };
+    const { from } = this.props.location.state || { from: { pathname: '/account' } };
     // if correct authentication, redirect to from: page instead of signup screen
     if (this.state.redirectToReferer) {
       return <Redirect to={from}/>;
+
     }
     return (
         <div style={menuStyle} className='signup-background'>
-          <Dropdown text={this.props.currentUser}/>
+          <Container>
+            <Grid.Column textAlign="center" verticalAlign="middle" centered columns={2}>
+              <Grid.Column className='signup-column'>
+                <Header as="h2" textAlign="center" className='signup'>
+                  Welcome, {this.props.currentUser}!
+                </Header>
+                <Header as="h2" textAlign="center" className='signup'>
+                  Change password
+                </Header>
+            </Grid.Column>
+            <Grid.Column>
+          <Form onSubmit={this.submit}>
+            <Segment stacked>
+              <Form.Input
+                  label="Old Password"
+                  icon="lock"
+                  iconPosition="left"
+                  name="oldPassword"
+                  placeholder="Old Password"
+                  type="password"
+                  onChange={this.handleChange}
+              />
+              <Form.Input
+                  label="New Password"
+                  icon="lock"
+                  iconPosition="left"
+                  name="newPassword"
+                  placeholder="New Password"
+                  type="password"
+                  onChange={this.handleChange}
+              />
+              <Form.Button content="Submit"/>
+            </Segment>
+          </Form>
+          {this.state.error === '' ? (
+              ''
+          ) : (
+              <Message
+                  error
+                  header="Password change was not successful"
+                  content={this.state.error}
+              />
+              )}
+            </Grid.Column>
+            </Grid.Column>
+          </Container>
         </div>
     );
   }
