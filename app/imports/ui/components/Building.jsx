@@ -1,13 +1,13 @@
 import React from 'react';
 import { Card } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class Building extends React.Component {
   render() {
     return (
-        <Card centered href='#link-placeholder'>
+        <Card centered as={Link} to={this.props.building.link} >
           <Card.Content>
             <Card.Header>{this.props.building.buildingName}</Card.Header>
             <img
