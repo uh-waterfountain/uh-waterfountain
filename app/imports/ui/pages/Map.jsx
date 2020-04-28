@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Image, Loader, Header } from 'semantic-ui-react';
+import { Container, Image, Loader, Header, List } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Stuffs } from '../../api/stuff/Stuff';
@@ -17,10 +17,50 @@ class Map extends React.Component {
   renderPage() {
     return (
         <Container className='map'>
-          <Header as='h3' inverted>
+          <Header as='h3' inverted className='map-text'>
             This map shows the locations of all available buildings with fountains from the List Fountains page
           </Header>
         <Image src="/images/map.png" size='massive'rounded centered/>
+        <Header as='h3' inverted>
+          Number of fountains in each building:
+        </Header>
+          <List bulleted>
+          <List.Item>
+            Art Building: 2</List.Item>
+          <List.Item>
+            Bilger Hall: 2
+          </List.Item>
+            <List.Item>
+          Business Administration: 2
+            </List.Item>
+            <List.Item>
+              Campus Center: 2
+            </List.Item>
+          <List.Item>
+          Hamilton Library: 2
+            </List.Item>
+          <List.Item>
+            Hawaii Institute of Geophysics (HIG): 1
+          </List.Item>
+            <List.Item>
+              Keller Hall: 2
+            </List.Item>
+            <List.Item>
+              Kuykendall Hall: 2
+            </List.Item>
+            <List.Item>
+              Moore Hall: 2
+            </List.Item>
+          <List.Item>
+            Pacific Ocean Science & Technology (POST): 2
+          </List.Item>
+            <List.Item>
+              Queen Lili&apos;uokalani Center (QLC): 2
+            </List.Item>
+          <List.Item>
+            Sinclair Library: 1 (first floor)
+          </List.Item>
+          </List>
         </Container>
     );
   }
