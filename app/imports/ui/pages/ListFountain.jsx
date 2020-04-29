@@ -10,57 +10,63 @@ import Building from '/imports/ui/components/Building';
 class ListFountain extends React.Component {
   buildings = [{
     buildingName: 'POST',
-    image: 'https://www.staradvertiser.com/wp-content/uploads/2017/01/web1_CTY-UH-Explosion-Report-084.jpg',
+    image: '/images/Post.jpg',
+    link: '/post',
   },
     {
       buildingName: 'Kuykendall',
-      image: 'https://bloximages.newyork1.vip.townnews.com/manoanow.org/' +
-          'content/tncms/assets/v3/editorial/f/7c/f7c643d8-c908-11e3-abf2-0017a43b2370/535497a530bdc.' +
-          'image.jpg?resize=400%2C189',
+      image: '/images/Kuykendall.jpg',
+      link: '/kuykendall',
     },
     {
       buildingName: 'ART',
-      image: 'https://manoa.hawaii.edu/landscaping/images/elements/baobab480.png',
+      image: '/images/Art.png',
+      link: '/art',
     },
     {
       buildingName: 'Moore',
-      image: 'https://bloximages.newyork1.vip.townnews.com/manoanow.org/' +
-          'content/tncms/assets/v3/editorial/8/b6/' +
-          '8b6303d2-87ff-11e9-a142-1f214e0527fa/5cf874e3a3f3a.image.jpg?resize=1200%2C800',
+      image: '/images/Moore.jpg',
+      link: '/moore',
     },
     {
-      buildingName: 'Sinclair Libary',
-      image: 'https://manoa.hawaii.edu/undergrad/ssc/wp-content/uploads/2014/04/sinclair002.jpg',
+      buildingName: 'Sinclair Library',
+      image: '/images/Sinclair.jpg',
+      link: '/sinclair',
     },
     {
       buildingName: 'Queen Liliuokalani Center',
-      image: 'https://pbs.twimg.com/media/ETQgu6vXQAEd3BG.jpg',
+      image: '/images/Qlc.jpg',
+      link: '/qlc',
     },
     {
       buildingName: 'Campus Center',
-      image: 'https://i1.wp.com/www.hawaii.edu/news/wp-content/' +
-          'uploads/2019/09/manoa-campus-center.jpg?fit=676%2C381&ssl=1',
+      image: '/images/Center.jpg',
+      link: '/center',
     },
     {
-      buildingName: 'Bilger Hall',
-      image: 'https://manoa.hawaii.edu/chem/wp-content/uploads/slide-building-1400x420.jpg',
+      buildingName: 'Bilger',
+      image: '/images/Bilger.jpg',
+      link: '/bilger',
     },
     {
-      buildingName: 'Hamilton Libary',
-      image: 'https://manoa.hawaii.edu/undergrad/ssc/wp-content/' +
-          'uploads/2014/04/university-of-hawaii-manoa-7037e8e9.jpg',
+      buildingName: 'Hamilton Library',
+      image: '/images/Hamilton.jpg',
+      link: '/hamilton',
     },
     {
       buildingName: 'Business Administration',
-      image: 'https://manoa.hawaii.edu/news/attachments/img7693_5819l.jpg',
+      image: '/images/Busad.jpg',
+      link: '/busad',
     },
     {
       buildingName: 'Hawaii Institute of Geophysics',
-      image: 'https://www.soest.hawaii.edu/atmo/wp-content/uploads/2019/10/HIG1a-750x350.jpg',
+      image: '/images/Hig.jpg',
+      link: '/hig',
     },
     {
-      buildingName: 'Keller Hall',
-      image: 'https://modtraveler.net/wp-content/uploads/2015/08/University-of-Hawaii-8.jpeg',
+      buildingName: 'Keller',
+      image: '/images/Keller.jpeg',
+      link: '/keller',
     },
   ];
 
