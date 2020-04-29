@@ -17,7 +17,6 @@ import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Account from '../pages/Account';
 import Signout from '../pages/Signout';
-<<<<<<< HEAD
 import Post from '../buildings/Post';
 import Kuykendall from '../buildings/Kuykendall';
 import Art from '../buildings/Art';
@@ -30,9 +29,7 @@ import Hamilton from '../buildings/Hamilton';
 import Busad from '../buildings/Busad';
 import Hig from '../buildings/Hig';
 import Keller from '../buildings/Keller';
-=======
 import Map from '../pages/Map';
->>>>>>> 814a84b4660c0da23aaa3c44431dedb8a80e1625
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
