@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Header, Loader } from 'semantic-ui-react';
+import { Container, Header, Loader, Image, Grid, Rating, Card } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Stuffs } from '../../api/stuff/Stuff';
@@ -14,10 +14,30 @@ class Moore extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
+    const menuStyle = { marginBottom: '10px', paddingTop: '15px' };
+    const cardStyle = { marginBottom: '10px', marginLeft: '10px', marginRight: '10px', paddingTop: '15px' };
     return (
-        <Container >
-          <Header as="h2" textAlign="center" inverted>Moore</Header>
-        </Container>
+        <div style={menuStyle}>
+          <Container>
+            <Header as="h2" textAlign="center" inverted>Moore Hall</Header>
+            <Card.Group>
+              <Card fluid>
+                <Grid columns={2} divided style={cardStyle}>
+                  <Grid.Row>
+                    <Grid.Column>
+                      <Image src='/fountains/placeholder.jpg' />
+                    </Grid.Column>
+                    <Grid.Column>
+                      <Header as="h3" textAlign="left">Fountain 01</Header>
+                      <Header as="h4" textAlign="left">Located: Floor 1</Header>
+                      <Rating maxRating={5} clearable />
+                    </Grid.Column>
+                  </Grid.Row>
+                </Grid>
+              </Card>
+            </Card.Group>
+          </Container>
+        </div>
     );
   }
 }
