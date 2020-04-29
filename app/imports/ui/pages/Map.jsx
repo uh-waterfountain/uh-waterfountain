@@ -34,31 +34,31 @@ class Map extends React.Component {
           Business Administration: 2
             </List.Item>
             <List.Item>
-              Campus Center: 2
+              Campus Center: 1
             </List.Item>
           <List.Item>
-          Hamilton Library: 2
+          Hamilton Library: 1
             </List.Item>
           <List.Item>
-            Hawaii Institute of Geophysics (HIG): 1
+            Hawaii Institute of Geophysics (HIG): 2
           </List.Item>
             <List.Item>
-              Keller Hall: 2
+              Keller Hall: 1
             </List.Item>
             <List.Item>
-              Kuykendall Hall: 2
+              Kuykendall Hall: 1
             </List.Item>
             <List.Item>
-              Moore Hall: 2
+              Moore Hall: 1
             </List.Item>
           <List.Item>
             Pacific Ocean Science & Technology (POST): 2
           </List.Item>
             <List.Item>
-              Queen Lili&apos;uokalani Center (QLC): 2
+              Queen Lili&apos;uokalani Center (QLC): 1
             </List.Item>
           <List.Item>
-            Sinclair Library: 1 (first floor)
+            Sinclair Library: 1
           </List.Item>
           </List>
         </Container>
