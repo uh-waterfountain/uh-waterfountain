@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Header, Loader, Image, Grid, Rating, Card } from 'semantic-ui-react';
+import { Container, Header, Loader, Image, Grid, Rating, Card, TextArea, Button, Form } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Stuffs } from '../../api/stuff/Stuff';
@@ -16,6 +16,7 @@ class Post extends React.Component {
   renderPage() {
     const menuStyle = { marginBottom: '10px', paddingTop: '15px' };
     const cardStyle = { marginBottom: '10px', marginLeft: '10px', marginRight: '10px', paddingTop: '15px' };
+    const submitStyle = { marginTop: '10px' }
     return (
         <div style={menuStyle}>
           <Container>
@@ -27,11 +28,15 @@ class Post extends React.Component {
                     <Grid.Column>
                       <Image src='/fountains/post01.jpg' />
                     </Grid.Column>
+                    <Form>
                     <Grid.Column>
                       <Header as="h3" textAlign="left">Fountain 01</Header>
                       <Header as="h4" textAlign="left">Located: Floor 1</Header>
                       <Rating maxRating={5} clearable />
+                      <TextArea placeholder = 'Tell Us About Your Experience!'/>
+                      <Button style={submitStyle}>Submit</Button>
                     </Grid.Column>
+                    </Form>
                   </Grid.Row>
                 </Grid>
               </Card>
@@ -41,11 +46,15 @@ class Post extends React.Component {
                     <Grid.Column>
                       <Image src='/fountains/post02.jpg' />
                     </Grid.Column>
+                    <Form>
                     <Grid.Column>
                       <Header as="h3" textAlign="left">Fountain 02</Header>
                       <Header as="h4" textAlign="left">Located: Floor 1</Header>
                       <Rating maxRating={5} clearable />
+                      <TextArea placeholder = 'Tell Us About Your Experience!'/>
+                      <Button style={submitStyle}>Submit</Button>
                     </Grid.Column>
+                    </Form>
                   </Grid.Row>
                 </Grid>
               </Card>
