@@ -5,6 +5,7 @@ import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Container, Dropdown, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 import { Accounts } from 'meteor/accounts-base';
+import { Ratings } from '../../api/ratings/Ratings';
 import { Stuffs } from '../../api/stuff/Stuff';
 import swal from 'sweetalert';
 
@@ -37,6 +38,8 @@ class Account extends React.Component {
 
   /** Display the signup form. Redirect to add page after successful registration and login. */
   render() {
+    const ratings = Ratings.find({}, { sort: { createdAt: -1 } }).fetch()
+        .filter(rate => rate.target === this.props.currentUser);
     const menuStyle = { marginBottom: '10px', paddingTop: '15px' };
     const { from } = this.props.location.state || { from: { pathname: '/account' } };
     // if correct authentication, redirect to from: page instead of signup screen
@@ -89,6 +92,19 @@ class Account extends React.Component {
                   content={this.state.error}
               />
               )}
+          <Grid.Row columns={2}>
+            <Grid.Column>
+              <h3>{ratings.length} User Ratings</h3>
+              {ratings.length > 0 ? <Comment.Group size={'big'}>{ratings
+                      .map((rating, index) => <RatingItem rating={rating}
+                                                          key={index}/>)}
+                  </Comment.Group>
+                  : <Header as={Container}
+                            textAlign={'center'}>There is no rating for you</Header>}
+            </Grid.Column>
+            <Grid.Column>
+            </Grid.Column>
+          </Grid.Row>
             </Grid.Column>
             </Grid.Column>
           </Container>
@@ -101,6 +117,7 @@ class Account extends React.Component {
 Account.propTypes = {
   location: PropTypes.object,
   currentUser: PropTypes.string,
+  ratings: PropTypes.array.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
