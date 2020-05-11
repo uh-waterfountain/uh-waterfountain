@@ -8,7 +8,7 @@ import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
 import ListStuff from '../pages/ListFountain';
-import ListStuffAdmin from '../pages/ListFountainAdmin';
+import ListFountainAdmin from '../pages/ListFountainAdmin';
 import AddFountain from '../pages/AddFountain';
 import Directory from '../pages/Directory';
 import EditStuff from '../pages/EditStuff';
@@ -48,7 +48,7 @@ class App extends React.Component {
               <ProtectedRoute path="/directory" component={Directory}/>
               <ProtectedRoute path="/map" component={Map}/>
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
-              <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
+              <AdminProtectedRoute path="/admin" component={ListFountainAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route path="/post" component={Post}/>
               <Route path="/kuykendall" component={Kuykendall}/>

@@ -1,10 +1,9 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Table, Header, Loader } from 'semantic-ui-react';
+import { Container, Card, Grid, Image, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Stuffs } from '../../api/stuff/Stuff';
-import FountainItemAdmin from '../components/FountainItemAdmin';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListFountainAdmin extends React.Component {
@@ -17,24 +16,212 @@ class ListFountainAdmin extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
-        <Container>
-          <Header as="h2" textAlign="center">List Stuff (Admin)</Header>
-          <Table celled>
-            <Table.Header>
-              <Table.Row>
-                <Table.HeaderCell>Name</Table.HeaderCell>
-                <Table.HeaderCell>Location</Table.HeaderCell>
-                <Table.HeaderCell>Type</Table.HeaderCell>
-                <Table.HeaderCell>Water Quality</Table.HeaderCell>
-                <Table.HeaderCell>Rating</Table.HeaderCell>
-                <Table.HeaderCell>Owner</Table.HeaderCell>
-              </Table.Row>
-            </Table.Header>
-            <Table.Body>
-              {this.props.stuffs.map((stuff) => <FountainItemAdmin key={stuff._id} stuff={stuff} />)}
-            </Table.Body>
-          </Table>
-        </Container>
+          <Container>
+            <Header as="h2" textAlign="center" inverted>Current Listed Fountains (Admin view only)</Header>
+            <Grid columns={4}>
+              <Grid.Row>
+                <Grid.Column>
+            <Card>
+            <Image size='mini' src='/fountains/art01.jpg' wrapped ui={false}/>
+            <Card.Content>
+              <Card.Header>Art Building</Card.Header>
+              <Card.Description>
+                Located: Floor 1
+              </Card.Description>
+            </Card.Content>
+            </Card>
+                </Grid.Column>
+                <Grid.Column>
+            <Card>
+              <Image size='mini' src='/fountains/art02.jpg' wrapped ui={false} />
+              <Card.Content>
+                <Card.Header>Art Building</Card.Header>
+                <Card.Description>
+                  Located: Floor 1
+                </Card.Description>
+              </Card.Content>
+            </Card>
+                </Grid.Column>
+              <Grid.Column>
+            <Card>
+              <Image size='mini' src='/fountains/bilger01.jpg' wrapped ui={false} />
+              <Card.Content>
+                <Card.Header>Bilger</Card.Header>
+                <Card.Description>
+                  Located: Floor 1
+                </Card.Description>
+              </Card.Content>
+            </Card>
+              </Grid.Column>
+              <Grid.Column>
+            <Card>
+              <Image size='mini' src='/fountains/bilger02.jpg' wrapped ui={false} />
+              <Card.Content>
+                <Card.Header>Bilger</Card.Header>
+                <Card.Description>
+                  Located: Floor 1
+                </Card.Description>
+              </Card.Content>
+            </Card>
+              </Grid.Column>
+                </Grid.Row>
+
+              <Grid.Row>
+              <Grid.Column>
+            <Card>
+              <Image size='mini' src='/fountains/busad01.jpg' wrapped ui={false} />
+              <Card.Content>
+                <Card.Header>Business Administration</Card.Header>
+                <Card.Description>
+                  Located: Floor 1
+                </Card.Description>
+              </Card.Content>
+            </Card>
+              </Grid.Column>
+              <Grid.Column>
+            <Card>
+              <Image size='mini' src='/fountains/busad02.jpg' wrapped ui={false} />
+              <Card.Content>
+                <Card.Header>Business Administration</Card.Header>
+                <Card.Description>
+                  Located: Floor 1
+                </Card.Description>
+              </Card.Content>
+            </Card>
+              </Grid.Column>
+              <Grid.Column>
+            <Card>
+              <Image size='mini' src='/fountains/hamilton01.jpg' wrapped ui={false} />
+              <Card.Content>
+                <Card.Header>Hamilton Library</Card.Header>
+                <Card.Description>
+                  Located: Floor 1
+                </Card.Description>
+              </Card.Content>
+            </Card>
+              </Grid.Column>
+              <Grid.Column>
+            <Card>
+              <Image size='mini' src='/fountains/hig01.jpg' wrapped ui={false} />
+              <Card.Content>
+                <Card.Header>Hamilton Library</Card.Header>
+                <Card.Description>
+                  Located: Floor 1
+                </Card.Description>
+              </Card.Content>
+            </Card>
+              </Grid.Column>
+              </Grid.Row>
+
+              <Grid.Row>
+            <Grid.Column>
+            <Card>
+              <Image size='mini' src='/fountains/hig02.jpg' wrapped ui={false} />
+              <Card.Content>
+                <Card.Header>HIG</Card.Header>
+                <Card.Description>
+                  Located: Floor 2
+                </Card.Description>
+              </Card.Content>
+            </Card>
+            </Grid.Column>
+                <Grid.Column>
+            <Card>
+              <Image size='mini' src='/fountains/post01.jpg' wrapped ui={false} />
+              <Card.Content>
+                <Card.Header>POST</Card.Header>
+                <Card.Description>
+                  Located: Floor 1
+                </Card.Description>
+              </Card.Content>
+            </Card>
+                </Grid.Column>
+                <Grid.Column>
+            <Card>
+              <Image size='mini' src='/fountains/post02.jpg' wrapped ui={false} />
+              <Card.Content>
+                <Card.Header>POST</Card.Header>
+                <Card.Description>
+                  Located: Floor 1
+                </Card.Description>
+              </Card.Content>
+            </Card>
+                </Grid.Column>
+                <Grid.Column>
+            <Card>
+              <Image size='mini' src='/fountains/sinclair01.jpg' wrapped ui={false} />
+              <Card.Content>
+                <Card.Header>Sinclair Library</Card.Header>
+                <Card.Description>
+                  Located: Floor 1
+                </Card.Description>
+              </Card.Content>
+            </Card>
+                </Grid.Column>
+              </Grid.Row>
+
+              <Grid.Row>
+              <Grid.Column>
+                <Card>
+                  <Image size='small' src='/fountains/placeholder.jpg' wrapped ui={false} />
+                  <Card.Content>
+                    <Card.Header>Campus Center</Card.Header>
+                    <Card.Description>
+                      Located: Floor 1
+                    </Card.Description>
+                  </Card.Content>
+                </Card>
+              </Grid.Column>
+                <Grid.Column>
+                <Card>
+                  <Image size='mini' src='/fountains/placeholder.jpg' wrapped ui={false} />
+                  <Card.Content>
+                    <Card.Header>Keller Hall</Card.Header>
+                    <Card.Description>
+                      Located: Floor 2
+                    </Card.Description>
+                  </Card.Content>
+                </Card>
+                </Grid.Column>
+                <Grid.Column>
+              <Card>
+                <Image size='mini' src='/fountains/placeholder.jpg' wrapped ui={false} />
+                <Card.Content>
+                  <Card.Header>Kuykendall Hall</Card.Header>
+                  <Card.Description>
+                    Located: Floor 1
+                  </Card.Description>
+                </Card.Content>
+              </Card>
+                </Grid.Column>
+                <Grid.Column>
+              <Card>
+                <Image size='mini' src='/fountains/placeholder.jpg' wrapped ui={false} />
+                <Card.Content>
+                  <Card.Header>Moore Hall</Card.Header>
+                  <Card.Description>
+                    Located: Floor 1
+                  </Card.Description>
+                </Card.Content>
+              </Card>
+                </Grid.Column>
+              </Grid.Row>
+
+                <Grid.Row>
+                <Grid.Column>
+              <Card>
+                <Image size='mini' src='/fountains/placeholder.jpg' wrapped ui={false} />
+                <Card.Content>
+                  <Card.Header>Queen Liliʻuokalani Center</Card.Header>
+                  <Card.Description>
+                    Located: Floor 1
+                  </Card.Description>
+                </Card.Content>
+              </Card>
+                </Grid.Column>
+              </Grid.Row>
+            </Grid>
+          </Container>
     );
   }
 }
