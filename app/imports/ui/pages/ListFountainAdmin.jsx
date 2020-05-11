@@ -46,7 +46,7 @@ class ListFountainAdmin extends React.Component {
             <Card>
               <Image size='mini' src='/fountains/bilger01.jpg' wrapped ui={false} />
               <Card.Content>
-                <Card.Header>Bilger</Card.Header>
+                <Card.Header>Bilger Hall</Card.Header>
                 <Card.Description>
                   Located: Floor 1
                 </Card.Description>
@@ -57,7 +57,7 @@ class ListFountainAdmin extends React.Component {
             <Card>
               <Image size='mini' src='/fountains/bilger02.jpg' wrapped ui={false} />
               <Card.Content>
-                <Card.Header>Bilger</Card.Header>
+                <Card.Header>Bilger Hall</Card.Header>
                 <Card.Description>
                   Located: Floor 1
                 </Card.Description>
