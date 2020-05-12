@@ -1,9 +1,9 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Header, Loader } from 'semantic-ui-react';
+import { Card, Container, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { Stuffs } from '../../api/stuff/Stuff';
+import { Fountains } from '../../api/fountain/Fountain';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class Art extends React.Component {
@@ -17,6 +17,9 @@ class Art extends React.Component {
     return (
         <Container >
           <Header as="h2" textAlign="center" inverted>Art</Header>
+          <Card.Group>
+            {this.buildings.map((building, index) => <Building key={index} building={building}/>)}
+          </Card.Group>
         </Container>
     );
   }
@@ -31,9 +34,9 @@ Art.propTypes = {
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe('Stuff');
+  const subscription = Meteor.subscribe('Fountains');
   return {
-    stuffs: Stuffs.find({}).fetch(),
+    fountains: Fountains.find({}).fetch(),
     ready: subscription.ready(),
   };
 })(Art);
