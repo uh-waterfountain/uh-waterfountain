@@ -27,6 +27,6 @@ function addFountain(data) {
 if (Fountains.find().count() === 0) {
   if (Meteor.settings.defaultFountains) {
     console.log('Creating fountain data.');
-    Meteor.settings.defaultFountain.map(data => addFountain(data));
+    Meteor.settings.defaultFountains.map(data => addFountain(data));
   }
 }

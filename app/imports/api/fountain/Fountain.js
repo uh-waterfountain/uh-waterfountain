@@ -11,11 +11,7 @@ const FountainSchema = new SimpleSchema({
   location: String,
   image: String,
   owner: String,
-  type: {
-    type: String,
-    allowedValues: ['Water Bottle Refillable', 'Not Water Bottle Refillable'],
-    defaultValue: 'Not Water Bottle Refillable',
-  },
+  type: String,
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */
