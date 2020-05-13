@@ -1,13 +1,21 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Header, Loader } from 'semantic-ui-react';
+import { Card, Container, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Stuffs } from '../../api/stuff/Stuff';
+import Fountain from '../components/Fountain';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class Art extends React.Component {
+  fountains = [{
+    fountainName: 'Fountain 01',
+    image: '/images/Art.png',
+    floor: 'first floor',
+  },
+  ]
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
+
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
@@ -17,6 +25,9 @@ class Art extends React.Component {
     return (
         <Container >
           <Header as="h2" textAlign="center" inverted>Art</Header>
+          <Card.Group>
+            {this.fountains.map((fountain, index) => <Fountain key={index} fountain={fountain}/>)}
+          </Card.Group>
         </Container>
     );
   }
