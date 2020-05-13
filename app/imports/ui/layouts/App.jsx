@@ -15,18 +15,18 @@ import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
-import Post from '../buildings/Post';
-import Kuykendall from '../buildings/Kuykendall';
-import Art from '../buildings/Art';
-import Moore from '../buildings/Moore';
-import Sinclair from '../buildings/Sinclair';
-import Qlc from '../buildings/Qlc';
-import Center from '../buildings/Center';
-import Bilger from '../buildings/Bilger';
-import Hamilton from '../buildings/Hamilton';
-import Busad from '../buildings/Busad';
-import Hig from '../buildings/Hig';
-import Keller from '../buildings/Keller';
+import Post from '../pages/buildings/Post';
+import Kuykendall from '../pages/buildings/Kuykendall';
+import Art from '../pages/buildings/Art';
+import Moore from '../pages/buildings/Moore';
+import Sinclair from '../pages/buildings/Sinclair';
+import Qlc from '../pages/buildings/Qlc';
+import Center from '../pages/buildings/Center';
+import Bilger from '../pages/buildings/Bilger';
+import Hamilton from '../pages/buildings/Hamilton';
+import Busad from '../pages/buildings/Busad';
+import Hig from '../pages/buildings/Hig';
+import Keller from '../pages/buildings/Keller';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {

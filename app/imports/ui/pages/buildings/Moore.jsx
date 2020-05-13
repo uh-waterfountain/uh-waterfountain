@@ -3,10 +3,10 @@ import { Meteor } from 'meteor/meteor';
 import { Container, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { Stuffs } from '../../api/stuff/Stuff';
+import { Stuffs } from '../../../api/stuff/Stuff';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-class Busad extends React.Component {
+class Moore extends React.Component {
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
@@ -16,14 +16,14 @@ class Busad extends React.Component {
   renderPage() {
     return (
         <Container >
-          <Header as="h2" textAlign="center" inverted>Business Administration</Header>
+          <Header as="h2" textAlign="center" inverted>Moore</Header>
         </Container>
     );
   }
 }
 
 /** Require an array of Stuff documents in the props. */
-Busad.propTypes = {
+Moore.propTypes = {
   stuffs: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
@@ -36,4 +36,4 @@ export default withTracker(() => {
     stuffs: Stuffs.find({}).fetch(),
     ready: subscription.ready(),
   };
-})(Busad);
+})(Moore);

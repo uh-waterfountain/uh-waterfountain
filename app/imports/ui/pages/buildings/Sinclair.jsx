@@ -3,10 +3,10 @@ import { Meteor } from 'meteor/meteor';
 import { Container, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { Stuffs } from '../../api/stuff/Stuff';
+import { Stuffs } from '../../../api/stuff/Stuff';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-class Hig extends React.Component {
+class Sinclair extends React.Component {
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
@@ -16,14 +16,14 @@ class Hig extends React.Component {
   renderPage() {
     return (
         <Container >
-          <Header as="h2" textAlign="center" inverted>Hawaii Institute of Geophysics</Header>
+          <Header as="h2" textAlign="center" inverted>Sinclair Library</Header>
         </Container>
     );
   }
 }
 
 /** Require an array of Stuff documents in the props. */
-Hig.propTypes = {
+Sinclair.propTypes = {
   stuffs: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
@@ -36,4 +36,4 @@ export default withTracker(() => {
     stuffs: Stuffs.find({}).fetch(),
     ready: subscription.ready(),
   };
-})(Hig);
+})(Sinclair);

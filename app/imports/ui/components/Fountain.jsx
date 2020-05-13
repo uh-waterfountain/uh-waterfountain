@@ -7,12 +7,12 @@ import { withRouter } from 'react-router-dom';
 class Fountain extends React.Component {
   render() {
     return (
-        <Card>
+        <Card centered>
           <Card.Content>
-            <Card.Header>{this.props.fountain.fountainName}</Card.Header>
-            <Header as="h3">{this.props.fountain.floor}</Header>
+            <Card.Header>{this.props.fountains.fountainName}</Card.Header>
+            <Header as="h3">{this.props.fountains.floor}</Header>
             <img
-                src={this.props.fountain.image}
+                src={this.props.fountains.image}
                 height={150}
                 width={262}
             />
@@ -24,7 +24,7 @@ class Fountain extends React.Component {
 
 /** Require a document to be passed to this component. */
 Fountain.propTypes = {
-  fountain: PropTypes.object.isRequired,
+  fountains: PropTypes.object.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
