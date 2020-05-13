@@ -4,11 +4,13 @@ import { Container, Header, Loader, Image, Grid, Rating, Card, TextArea, Button,
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Stuffs } from '../../api/stuff/Stuff';
-import { Ratings } from '../../api/ratings/Ratings';
+import { Ratings } from '../../api/rating/Ratings';
 import RatingFountain from '../components/RatingFountain';
 import swal from 'sweetalert';
 import SimpleSchema from 'simpl-schema';
 import { withRouter } from 'react-router-dom';
+import { Fountains } from '../../api/fountain/Fountains';
+import RateFountain from '../components/RateFountain';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class Post extends React.Component {
@@ -76,7 +78,14 @@ class Post extends React.Component {
                     <Grid.Column>
                       <Header as="h3" textAlign="left">Fountain 01</Header>
                       <Header as="h4" textAlign="left">Located: Floor 1</Header>
-                      <Rating icon='star' defaultRating={0} maxRating={5} size={'massive'} onRate={this.handleRating}/>
+                      <RateFountain user={Meteor.user().username} spotId={this.props.fountain._id} Ratings=
+                          {this.props.Ratings}
+                                    score={_.where(_.where(this.props.rating,
+                                        { spotId: this.props.fountain._id }),
+                                        { owner: Meteor.user().username })}
+                                    ratingCheck={_.contains(_.pluck(_.where(_.where(this.props.rating,
+                                        { spotId: this.props.fountain._id }),
+                                        { owner: Meteor.user().username }), 'owner'), Meteor.user().username)} />
                       <Form onSubmit={this.submit}>
                         <Form.TextArea required
                                        label='Comment'
@@ -119,18 +128,22 @@ class Post extends React.Component {
 
 /** Require an array of Stuff documents in the props. */
 Post.propTypes = {
-  stuffs: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
   currentUser: PropTypes.bool.isRequired,
+  Fountains: PropTypes.object.isRequired,
+  fountain: PropTypes.object.isRequired,
+  Ratings: PropTypes.object.isRequired,
+  rating: PropTypes.object.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe('Stuff');
+  const subscription = Meteor.subscribe('Fountains');
   const subscription2 = Meteor.subscribe('Ratings');
   return {
-    stuffs: Stuffs.find({}).fetch(),
-    ready: subscription.ready() && subscription2.ready(),
+    fountain: Fountains.find({}).fetch(),
+    ratings: Ratings.find({}).fetch(),
+    ready: (subscription.ready() && subscription2.ready()),
   };
 })(Post);

@@ -9,7 +9,6 @@ class FountainItemAdmin extends React.Component {
         <Table.Row>
           <Table.Cell>{this.props.stuff.name}</Table.Cell>
           <Table.Cell>{this.props.stuff.location}</Table.Cell>
-          <Table.Cell>{this.props.stuff.type}</Table.Cell>
           <Table.Cell>{this.props.stuff.quality}</Table.Cell>
           <Table.Cell>{this.props.stuff.rating}</Table.Cell>
           <Table.Cell>{this.props.stuff.owner}</Table.Cell>

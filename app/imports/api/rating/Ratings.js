@@ -6,14 +6,14 @@ import { Tracker } from 'meteor/tracker';
 const Ratings = new Mongo.Collection('Ratings');
 
 /** Define a schema to specify the structure of each document in the collection. */
-const RatingSchema = new SimpleSchema({
-  rating: Number,
-  comment: String,
-  createdAt: Date,
+const RatingsSchema = new SimpleSchema({
+  score: Number,
+  owner: String,
+  spotId: String,
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */
-Ratings.attachSchema(RatingSchema);
+Ratings.attachSchema(RatingsSchema);
 
 /** Make the collection and schema available to other code. */
-export { Ratings, RatingSchema };
+export { Ratings, RatingsSchema };

@@ -5,7 +5,7 @@ import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Container, Dropdown, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 import { Accounts } from 'meteor/accounts-base';
-import { Ratings } from '../../api/ratings/Ratings';
+import { Ratings } from '../../api/rating/Ratings';
 import { Stuffs } from '../../api/stuff/Stuff';
 import swal from 'sweetalert';
 
