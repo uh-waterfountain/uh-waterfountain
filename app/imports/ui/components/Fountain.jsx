@@ -9,9 +9,9 @@ class Fountain extends React.Component {
     return (
         <Card>
           <Card.Content>
-            <Card.Header>{this.fountain.name}</Card.Header>
+            <Card.Header>{this.props.fountain.name}</Card.Header>
             <img
-                src={this.fountain.image}
+                src={this.props.fountain.image}
                 height={150}
                 width={262}
             />
