@@ -2,6 +2,7 @@ import React from 'react';
 import { Grid, Segment, Header } from 'semantic-ui-react';
 import { AutoForm, ErrorsField, SelectField, SubmitField, TextField } from 'uniforms-semantic';
 import swal from 'sweetalert';
+import { Meteor } from 'meteor/meteor';
 import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
 import SimpleSchema from 'simpl-schema';
 import { Fountains } from '../../api/fountain/Fountain';
@@ -23,8 +24,9 @@ class AddFountain extends React.Component {
 
   /** On submit, insert the data. */
   submit(data, formRef) {
-    const { name, location, image } = data;
-    Fountains.insert({ name, location, image },
+    const { name, location, image, type } = data;
+    const owner = Meteor.user().username;
+    Fountains.insert({ name, location, image, type, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');

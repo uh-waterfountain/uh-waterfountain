@@ -14,11 +14,11 @@
   "defaultFountains": [
     {
       "name": "fountain", "location": "art", "image": "../public/images/Art.png", "type": "Water Bottle Refillable",
-    "owner": "jon@foo.com"
+    "owner": "john@foo.com"
     },
     {
       "name": "fountain02", "location": "art", "image": "../public/images/Art.png", "type": "Water Bottle Refillable",
-      "owner": "jon@foo.com"
+      "owner": "john@foo.com"
     }
   ]
 }
