@@ -1,6 +1,6 @@
 import React from 'react';
-import { Grid, Segment, Header } from 'semantic-ui-react';
-import { AutoForm, ErrorsField, SelectField, SubmitField, TextField } from 'uniforms-semantic';
+import { Grid, Segment, Header, Dropdown } from 'semantic-ui-react';
+import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
@@ -42,7 +42,7 @@ const makeSchema = (allBuildings, allFloors) => new SimpleSchema({
   building: { type: Array, label: 'Buildings', optional: true },
   'building.$': { type: String, allowedValues: allBuildings },
   floor: { type: Array, label: 'Floors', optional: true },
-  'floors.$': { type: String, allowedValues: allFloors },
+  'floor.$': { type: String, allowedValues: allFloors },
   owner: String,
 });
 
@@ -70,6 +70,7 @@ class AddFountain extends React.Component {
     const allBuildings = _.pluck(Buildings.find().fetch(), 'name');
     const allFloors = _.pluck(Floors.find().fetch(), 'email');
     const formSchema = makeSchema(allBuildings, allFloors);
+    const dropdownStyle = { marginTop: '10px', marginBottom: '10px' }
     return (
         <Grid container centered>
           <Grid.Column>
@@ -77,9 +78,19 @@ class AddFountain extends React.Component {
             <AutoForm ref={ref => { fRef = ref; }} schema={formSchema} onSubmit={data => this.submit(data, fRef)} >
               <Segment>
                 <TextField name='name'/>
-                <SelectField placeholder='Select the Building' options={buildingOptions} />
+                <Dropdown name='building' style={dropdownStyle}
+                    placeholder='Select The Building the Fountain is Located'
+                    selection
+                    fluid
+                    options={buildingOptions}
+                />
                 <TextField name='image'/>
-                <SelectField name='floor' options={floorNums}/>
+                <Dropdown name='floor' style={dropdownStyle}
+                    placeholder='Select The Floor the Fountain is Located'
+                    selection
+                    fluid
+                    options={floorNums}
+                />
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
               </Segment>
@@ -97,10 +108,10 @@ AddFountain.propTypes = {
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Ensure that minimongo is populated with all collections prior to running render().
-  const sub1 = Meteor.subscribe(Buildings);
-  const sub2 = Meteor.subscribe(Floors);
-  const sub3 = Meteor.subscribe(floorName);
-  const sub4 = Meteor.subscribe(buildingName);
+  const sub1 = Meteor.subscribe('Buildings');
+  const sub2 = Meteor.subscribe('Floors');
+  const sub3 = Meteor.subscribe('floorName');
+  const sub4 = Meteor.subscribe('buildingName');
   return {
     ready: sub1.ready() && sub2.ready() && sub3.ready() && sub4.ready(),
   };

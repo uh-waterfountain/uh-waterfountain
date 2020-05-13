@@ -3,7 +3,7 @@ import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
 
 /** The name of the collection and the global publication. */
-const floorName = 'Buildings';
+const floorName = 'Floors';
 
 /** Define a Mongo collection to hold the data. */
 const Floors = new Mongo.Collection(floorName);
