@@ -18,8 +18,9 @@ class Post extends React.Component {
 
     super(props);
     this.state = {
-      userRating: 0,
-      review: '',
+      score: Number,
+      owner: String,
+      spotId: String,
       activePage: 1,
     };
     this.renderPage = this.renderPage.bind(this);
@@ -33,16 +34,11 @@ class Post extends React.Component {
     this.setState({ activePage: data.activePage });
   };
 
-  handleReview = (e, data) => {
-    this.setState({ review: data.value });
-  };
-
   submit = () => {
     if (this.state.userRating === 0) {
       this.setState({ error: 'You forgot to rate!' });
     } else {
-      Ratings.insert({ rating: this.state.userRating,
-        comment: this.state.review, createdAt: new Date() }, (error) => {
+      Ratings.insert({ Ratings:this.props.Ratings , owner:Meteor.user().username , spotId:this.props.fountain._id }, (error) => {
         if (error) {
           swal('Error', error.message, 'error');
         } else {
@@ -78,8 +74,8 @@ class Post extends React.Component {
                     <Grid.Column>
                       <Header as="h3" textAlign="left">Fountain 01</Header>
                       <Header as="h4" textAlign="left">Located: Floor 1</Header>
-                      <RateFountain user={Meteor.user().username} spotId={this.props.fountain._id} Ratings=
-                          {this.props.Ratings}
+                      <RateFountain user={Meteor.user().username} spotId={this.props.fountain._id}
+                                    Ratings= {this.props.Ratings}
                                     score={_.where(_.where(this.props.rating,
                                         { spotId: this.props.fountain._id }),
                                         { owner: Meteor.user().username })}
@@ -134,6 +130,7 @@ Post.propTypes = {
   fountain: PropTypes.object.isRequired,
   Ratings: PropTypes.object.isRequired,
   rating: PropTypes.object.isRequired,
+  score: PropTypes.object.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
