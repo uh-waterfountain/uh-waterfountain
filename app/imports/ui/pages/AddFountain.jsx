@@ -10,7 +10,12 @@ import { Fountains } from '../../api/fountain/Fountain';
 /** Create a schema to specify the structure of the data to appear in the form. */
 const formSchema = new SimpleSchema({
   name: String,
-  location: String,
+  location: {
+    type: String,
+    allowedValues: ['Art', 'Bilger', 'Busad', 'Campus Center', 'Hamilton', 'HIG',
+      'Keller', 'Kuykendall', 'Moore', 'POST', 'QLC', 'Sinclair'],
+    defaultValue: 'Art',
+  },
   image: String,
   type: {
     type: String,
@@ -47,7 +52,7 @@ class AddFountain extends React.Component {
             <AutoForm ref={ref => { fRef = ref; }} schema={formSchema} onSubmit={data => this.submit(data, fRef)} >
               <Segment>
                 <TextField name='name'/>
-                <TextField name='location'/>
+                <SelectField name='location'/>
                 <TextField name='image'/>
                 <SelectField name='type'/>
                 <SubmitField value='Submit'/>

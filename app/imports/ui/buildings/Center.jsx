@@ -1,9 +1,10 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Header, Loader } from 'semantic-ui-react';
+import { Card, Container, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { Stuffs } from '../../api/stuff/Stuff';
+import { Fountains } from '../../api/fountain/Fountain';
+import Fountain from '../components/Fountain';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class Center extends React.Component {
@@ -16,7 +17,10 @@ class Center extends React.Component {
   renderPage() {
     return (
         <Container >
-          <Header as="h2" textAlign="center" inverted>Campus Center</Header>
+          <Header as="h2" textAlign="center" inverted>Center</Header>
+          <Card.Group>
+            {this.props.fountains.map((fountain, index) => <Fountain key={index} fountain={fountain}/>)}
+          </Card.Group>
         </Container>
     );
   }
@@ -24,16 +28,16 @@ class Center extends React.Component {
 
 /** Require an array of Stuff documents in the props. */
 Center.propTypes = {
-  stuffs: PropTypes.array.isRequired,
+  fountains: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe('Stuff');
+  const subscription = Meteor.subscribe('Fountains');
   return {
-    stuffs: Stuffs.find({}).fetch(),
+    fountains: Fountains.find({ location: 'Campus Center' }).fetch(),
     ready: subscription.ready(),
   };
 })(Center);

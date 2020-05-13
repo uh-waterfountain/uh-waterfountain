@@ -36,8 +36,8 @@ Art.propTypes = {
 export default withTracker(() => {
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe('Fountains');
-  return {
-    fountains: Fountains.find({}).fetch(),
-    ready: subscription.ready(),
-  };
+    return {
+      fountains: Fountains.find({ location: 'Art' }).fetch(),
+      ready: subscription.ready(),
+    };
 })(Art);
