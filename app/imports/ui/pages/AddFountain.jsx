@@ -5,12 +5,17 @@ import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
 import SimpleSchema from 'simpl-schema';
-import { Stuffs } from '../../api/stuff/Stuff';
+import { Fountains } from '../../api/fountain/Fountain';
 
 /** Create a schema to specify the structure of the data to appear in the form. */
 const formSchema = new SimpleSchema({
   name: String,
-  location: String,
+  location: {
+    type: String,
+    allowedValues: ['Art', 'Bilger', 'Busad', 'Campus Center', 'Hamilton', 'HIG',
+      'Keller', 'Kuykendall', 'Moore', 'POST', 'QLC', 'Sinclair'],
+    defaultValue: 'Art',
+  },
   image: String,
   type: {
     type: String,
@@ -24,9 +29,9 @@ class AddFountain extends React.Component {
 
   /** On submit, insert the data. */
   submit(data, formRef) {
-    const { name, location, image } = data;
+    const { name, location, image, type } = data;
     const owner = Meteor.user().username;
-    Stuffs.insert({ name, location, image, owner },
+    Fountains.insert({ name, location, image, type, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -47,7 +52,7 @@ class AddFountain extends React.Component {
             <AutoForm ref={ref => { fRef = ref; }} schema={formSchema} onSubmit={data => this.submit(data, fRef)} >
               <Segment>
                 <TextField name='name'/>
-                <TextField name='location'/>
+                <SelectField name='location'/>
                 <TextField name='image'/>
                 <SelectField name='type'/>
                 <SubmitField value='Submit'/>
