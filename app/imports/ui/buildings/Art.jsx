@@ -4,6 +4,7 @@ import { Card, Container, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Fountains } from '../../api/fountain/Fountain';
+import Fountain from '../components/Fountain';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class Art extends React.Component {
@@ -18,7 +19,7 @@ class Art extends React.Component {
         <Container >
           <Header as="h2" textAlign="center" inverted>Art</Header>
           <Card.Group>
-            {this.buildings.map((building, index) => <Building key={index} building={building}/>)}
+            {this.props.fountains.map((fountain, index) => <Fountain key={index} fountain={fountain}/>)}
           </Card.Group>
         </Container>
     );
@@ -27,7 +28,7 @@ class Art extends React.Component {
 
 /** Require an array of Stuff documents in the props. */
 Art.propTypes = {
-  stuffs: PropTypes.array.isRequired,
+  fountains: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 

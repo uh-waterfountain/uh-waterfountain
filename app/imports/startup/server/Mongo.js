@@ -19,14 +19,14 @@ if (Stuffs.find().count() === 0) {
 }
 
 function addFountain(data) {
-  console.log(`  Adding: ${data.name} (${data.location})`);
+  console.log(`  Adding: ${data.name} (${data.owner})`);
   Fountains.insert(data);
 }
 
 /** Initialize the collection if empty. */
 if (Fountains.find().count() === 0) {
-  if (Meteor.settings.defaultData) {
-    console.log('Creating default data.');
-    Meteor.settings.defaultData.map(data => addFountain(data));
+  if (Meteor.settings.defaultFountains) {
+    console.log('Creating fountain data.');
+    Meteor.settings.defaultFountain.map(data => addFountain(data));
   }
 }

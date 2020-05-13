@@ -20,10 +20,17 @@ Meteor.publish('StuffAdmin', function publish() {
   return this.ready();
 });
 
-Meteor.publish('Fountain', function publish() {
+Meteor.publish('Fountains', function publish() {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
-    return Fountains.find({ location: username });
+    return Fountains.find({ owner: username });
+  }
+  return this.ready();
+});
+
+Meteor.publish('FountainsAdmin', function publish() {
+  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
+    return Fountains.find();
   }
   return this.ready();
 });

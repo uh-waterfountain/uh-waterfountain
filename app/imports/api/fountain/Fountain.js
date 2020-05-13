@@ -10,6 +10,7 @@ const FountainSchema = new SimpleSchema({
   name: String,
   location: String,
   image: String,
+  owner: String,
   type: {
     type: String,
     allowedValues: ['Water Bottle Refillable', 'Not Water Bottle Refillable'],

@@ -11,7 +11,14 @@
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
   ],
 
-  "defaultFountain": [
-    {"name": "fountain", "location": "art", "image": "../public/images/Art.png"}
+  "defaultFountains": [
+    {
+      "name": "fountain", "location": "art", "image": "../public/images/Art.png", "type": "Water Bottle Refillable",
+    "owner": "jon@foo.com"
+    },
+    {
+      "name": "fountain02", "location": "art", "image": "../public/images/Art.png", "type": "Water Bottle Refillable",
+      "owner": "jon@foo.com"
+    }
   ]
 }
