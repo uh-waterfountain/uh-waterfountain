@@ -36,8 +36,4 @@ Meteor.publish('Fountains', function publish() {
     return Fountains.find({ owner: username });
   }
   return this.ready();
-<<<<<<< HEAD
 });
-=======
-});
->>>>>>> 05b756d18615fd11a110b29d97ba4d49d449586e
