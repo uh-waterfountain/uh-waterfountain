@@ -1,5 +1,5 @@
 import React from 'react';
-import { Item, Rating, Container } from 'semantic-ui-react';
+import { Item, Rating, Container, Card } from 'semantic-ui-react';
 import { _ } from 'meteor/underscore';
 import swal from 'sweetalert';
 import PropTypes from 'prop-types';
@@ -16,26 +16,26 @@ class RateFountain extends React.Component {
     if (this.props.ratingCheck === true) {
       return (
           <Container>
-            <Item.Extra>
+            <Card.Content extra>
               <div className='fountain-text'>
                 User has Rated: &nbsp; <Rating className='ratingInterface' icon='star'
                                                defaultRating={defaultScore} maxRating={5} onRate={this.submitRating}/>
                 &nbsp; (Click again to re-rate!)
               </div>
-            </Item.Extra>
+            </Card.Content>
           </Container>
       );
     }
     return (
         <Container>
-          <Item.Extra>
+          <Card.Content extra>
             <div className='fountain-text'>
               Have you tried this water fountain? <br/>
               Leave a rating here! <br/>
               <Rating className='ratingInterface' icon='star' defaultRating={0} maxRating={5}
                       onRate={this.submitRating}/> &nbsp; (Click to rate!)
             </div>
-          </Item.Extra>
+          </Card.Content>
         </Container>
     );
   }
@@ -61,7 +61,7 @@ class RateFountain extends React.Component {
 }
 
 RateFountain.propTypes = {
-  user: PropTypes.string.isRequired,
+  owner: PropTypes.string.isRequired,
   fountainId: PropTypes.string.isRequired,
   ratingCheck: PropTypes.bool.isRequired,
   score: PropTypes.array.isRequired,

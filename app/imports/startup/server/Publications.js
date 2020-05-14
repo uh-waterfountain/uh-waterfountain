@@ -45,3 +45,10 @@ Meteor.publish('FountainsAdmin', function publish() {
   }
   return this.ready();
 });
+
+Meteor.publish('Users', function publish() {
+  if (Roles.userIsInRole(Meteor.userId(), 'admin')) {
+    return Meteor.users.find({}, { fields: { username: 1, _id: 1 } });
+  }
+  return this.ready();
+});
