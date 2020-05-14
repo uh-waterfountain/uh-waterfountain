@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Container, Button, Icon, Header } from 'semantic-ui-react';
+import { Grid, Container, Button, Icon } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 

@@ -1,6 +1,7 @@
 import React from 'react';
-import { Item, Rating, Container, Card } from 'semantic-ui-react';
+import { Rating, Container, Card } from 'semantic-ui-react';
 import { _ } from 'meteor/underscore';
+import { Meteor } from 'meteor/meteor';
 import swal from 'sweetalert';
 import PropTypes from 'prop-types';
 import 'uniforms-bridge-simple-schema-2';
@@ -50,7 +51,8 @@ class RateFountain extends React.Component {
             }
           });
     } else {
-      this.props.Ratings.insert({ score: data.rating, owner: Meteor.user().username , fountainId: this.props.fountainId },
+      this.props.Ratings.insert({ score: data.rating,
+            owner: Meteor.user().username, fountainId: this.props.fountainId },
           (error) => {
             if (error) {
               swal('Error', error.message, 'error');

@@ -1,18 +1,16 @@
 import React from 'react';
-import { Button, Item, Rating, Divider, Card, Grid, Header, Image } from 'semantic-ui-react';
+import { Card, Grid, Header, Image } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
-import swal from 'sweetalert';
 import { _ } from 'meteor/underscore';
-import { withRouter, Link } from 'react-router-dom';
-import { Roles } from 'meteor/alanning:roles';
+import { withRouter } from 'react-router-dom';
 import RateFountain from './RateFountain';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class FountainItem extends React.Component {
   render() {
-    const leftStyle = {marginTop: '10px', marginBottom: '10px', marginRight: '-10px', marginLeft: '5px'};
-    const rightStyle = {marginTop: '10px', marginBottom: '10px'};
+    const leftStyle = { marginTop: '10px', marginBottom: '10px', marginRight: '-10px', marginLeft: '5px' };
+    const rightStyle = { marginTop: '10px', marginBottom: '10px' };
 
     return (
         <Card fluid>
