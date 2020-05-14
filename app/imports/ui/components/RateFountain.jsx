@@ -17,7 +17,7 @@ class RateFountain extends React.Component {
       return (
           <Container>
             <Item.Extra>
-              <div className='spots-text'>
+              <div className='fountain-text'>
                 User has Rated: &nbsp; <Rating className='ratingInterface' icon='star'
                                                defaultRating={defaultScore} maxRating={5} onRate={this.submitRating}/>
                 &nbsp; (Click again to re-rate!)
