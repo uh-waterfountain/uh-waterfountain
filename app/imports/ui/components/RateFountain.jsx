@@ -50,7 +50,7 @@ class RateFountain extends React.Component {
             }
           });
     } else {
-      this.props.Ratings.insert({ score: data.rating, owner: this.props.user, spotId: this.props.spotId },
+      this.props.Ratings.insert({ score: data.rating, owner: this.props.user, fountainId: this.props.fountainId },
           (error) => {
             if (error) {
               swal('Error', error.message, 'error');
@@ -62,7 +62,7 @@ class RateFountain extends React.Component {
 
 RateFountain.propTypes = {
   user: PropTypes.string.isRequired,
-  spotId: PropTypes.string.isRequired,
+  fountainId: PropTypes.string.isRequired,
   ratingCheck: PropTypes.bool.isRequired,
   score: PropTypes.array.isRequired,
   Ratings: PropTypes.object.isRequired,

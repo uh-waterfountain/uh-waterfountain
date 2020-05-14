@@ -35,8 +35,9 @@ class Art extends React.Component {
           <Card.Group>
             <Item.Group divided>
               {this.props.fountains.map((fountain, index) => <FountainItem key={index} Fountains={Fountains}
-                                                                                    fountain={fountain}
-                                                                                    Ratings={Ratings} rating={this.props.ratings}/>)}
+                                                                           fountain={fountain}
+                                                                           Ratings={Ratings}
+                                                                           rating={this.props.ratings}/>)}
             </Item.Group>
           </Card.Group>
         </Container>
