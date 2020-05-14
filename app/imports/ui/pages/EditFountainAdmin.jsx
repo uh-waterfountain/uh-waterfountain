@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Loader, Header, Segment } from 'semantic-ui-react';
 import swal from 'sweetalert';
-import { AutoForm, ErrorsField, HiddenField, SelectField, SubmitField, TextField } from 'uniforms-semantic';
+import { AutoForm, ErrorsField, HiddenField, SubmitField, TextField } from 'uniforms-semantic';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
@@ -30,6 +30,8 @@ class EditFountainAdmin extends React.Component {
         <Grid container centered>
           <Grid.Column>
             <Header as="h2" textAlign="center" inverted>Edit Fountains</Header>
+            <Header as="h4" textAlign="center" inverted>To accept fountain change
+              Acceptance to &quot;accepted&quot;</Header>
             <AutoForm schema={FountainSchema} onSubmit={data => this.submit(data)} model={this.props.doc}>
               <Segment>
                 <TextField name='name'/>

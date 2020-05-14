@@ -10,7 +10,7 @@ class FountainAdmin extends React.Component {
         <Card centered>
           <Card.Content>
             <Card.Header>{this.props.fountain.name}</Card.Header>
-            <CardContent>hello</CardContent>
+            <CardContent>{this.props.fountain.location}</CardContent>
             <img
                 src={this.props.fountain.image}
                 height={150}
