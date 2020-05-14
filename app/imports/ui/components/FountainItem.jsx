@@ -7,7 +7,7 @@ import { _ } from 'meteor/underscore';
 import { withRouter, Link } from 'react-router-dom';
 import { Roles } from 'meteor/alanning:roles';
 import RateFountain from './RateFountain';
-import { Fountains } from '../../api/fountain/Fountain';
+import { Fountain } from '../../api/fountain/Fountain';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class FountainItem extends React.Component {
@@ -23,21 +23,21 @@ class FountainItem extends React.Component {
                 <Header as="h3" textAlign="left">{this.props.fountain.name}</Header>
                 <Header as="h4" textAlign="left">{this.props.fountain.location}</Header>
                 <Item.Extra>
-                  <div className='spots-text'> Average Rating:
+                  <div className> Average Rating:
                     &nbsp; <Rating icon='star' maxRating={5} rating={this.getRating(this.props.fountain._id)}
                                    disabled/> &nbsp;
                     (Total Ratings:
-                    {this.getRatingCount(this.props.Ratings.find({ spotId: this.props.fountain._id }).count())})
+                    {this.getRatingCount(this.props.Ratings.find({ fountainId: this.props.fountain._id }).count())})
                   </div>
                 </Item.Extra>
                 <Item.Extra>
-                  <RateFountain user={Meteor.user().username} spotId={this.props.fountain._id} Ratings=
+                  <RateFountain user={Meteor.user().username} fountainId={this.props.fountain._id} Ratings=
                       {this.props.Ratings}
                                 score={_.where(_.where(this.props.rating,
-                                    { spotId: this.props.fountain._id }),
+                                    { fountainId: this.props.fountain._id }),
                                     { owner: Meteor.user().username })}
                                 ratingCheck={_.contains(_.pluck(_.where(_.where(this.props.rating,
-                                    { spotId: this.props.fountain._id }),
+                                    { fountainId: this.props.fountain._id }),
                                     { owner: Meteor.user().username }), 'owner'), Meteor.user().username)} />
                 </Item.Extra>
               </Grid.Column>
@@ -45,6 +45,20 @@ class FountainItem extends React.Component {
           </Grid>
         </Card>
     );
+  }
+
+  getRating(idGet) {
+    if (this.props.Ratings.find({ fountainId: idGet }).count() <= 0) {
+      return 0;
+    }
+    const infoGet = _.pluck(this.props.Ratings.find({ fountainId: idGet }).fetch(), 'score');
+    const infoReduce = _.reduce(infoGet, (memo, num) => memo + num);
+    const infoLength = (infoGet.length);
+    return (infoReduce / infoLength);
+  }
+
+  getRatingCount(number) {
+    return number;
   }
 }
 

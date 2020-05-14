@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { Container, Header, Loader, Image, Grid, Rating, Card, Item } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import FountainItem from '/imports/ui/components/FountainItem'
+import FountainItem from '/imports/ui/components/FountainItem';
 import { Ratings } from '../../api/rating/Rating';
 import { Fountains } from '../../api/fountain/Fountain';
 import Fountain from '../components/Fountain';
@@ -33,10 +33,8 @@ class Art extends React.Component {
         <Container >
           <Header as="h2" textAlign="center" inverted>Art</Header>
           <Card.Group>
-            {this.props.fountains.map((fountain, index) => <Fountain key={index} fountain={fountain}/>)}
             <Item.Group divided>
-              {this.props.fountains.slice((this.state.activePage - 1) * 5,
-                  this.state.activePage * 5).map((fountain, index) => <FountainItem key={index} Fountains={Fountains}
+              {this.props.fountains.map((fountain, index) => <FountainItem key={index} Fountains={Fountains}
                                                                                     fountain={fountain}
                                                                                     Ratings={Ratings} rating={this.props.ratings}/>)}
             </Item.Group>
