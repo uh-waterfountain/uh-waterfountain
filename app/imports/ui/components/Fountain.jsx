@@ -7,7 +7,7 @@ import { withRouter } from 'react-router-dom';
 class Fountain extends React.Component {
   render() {
     return (
-        <Card>
+        <Card centered>
           <Card.Content>
             <Card.Header>{this.props.fountain.name}</Card.Header>
             <img
