@@ -25,14 +25,14 @@ class FountainItem extends React.Component {
                 <Card.Content>
                 <Header as="h3" textAlign="left">{this.props.fountain.name}</Header>
                 <Header as="h4" textAlign="left">{this.props.fountain.location}</Header>
-                  <RateFountain owner={Meteor.user().username} fountainId={this.props.fountain._id} Ratings=
+                  <RateFountain owner={Meteor.user()} fountainId={this.props.fountain._id} Ratings=
                       {this.props.Ratings}
                                 score={_.where(_.where(this.props.rating,
                                     { fountainId: this.props.fountain._id }),
-                                    { owner: Meteor.user().username })}
+                                    { owner: Meteor.user() })}
                                 ratingCheck={_.contains(_.pluck(_.where(_.where(this.props.rating,
                                     { fountainId: this.props.fountain._id }),
-                                    { owner: Meteor.user().username }), 'owner'), Meteor.user().username)}/>
+                                    { owner: Meteor.user() }), 'owner'), Meteor.user())}/>
                 </Card.Content>
               </Grid.Column>
             </Grid.Row>
