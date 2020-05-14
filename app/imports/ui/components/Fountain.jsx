@@ -13,7 +13,7 @@ class Fountain extends React.Component {
             <img
                 src={this.props.fountain.image}
                 height={150}
-                width={262}
+                width={267}
             />
           </Card.Content>
         </Card>

@@ -11,14 +11,17 @@ import RateFountain from './RateFountain';
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class FountainItem extends React.Component {
   render() {
+    const leftStyle = {marginTop: '10px', marginBottom: '10px', marginRight: '-10px', marginLeft: '5px'};
+    const rightStyle = {marginTop: '10px', marginBottom: '10px'};
+
     return (
         <Card fluid>
           <Grid columns={2} divided>
             <Grid.Row>
-              <Grid.Column>
+              <Grid.Column style={leftStyle}>
                 <Image src={this.props.fountain.image}/>
               </Grid.Column>
-              <Grid.Column>
+              <Grid.Column style={rightStyle}>
                 <Card.Content>
                 <Header as="h3" textAlign="left">{this.props.fountain.name}</Header>
                 <Header as="h4" textAlign="left">{this.props.fountain.location}</Header>

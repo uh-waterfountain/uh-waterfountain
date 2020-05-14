@@ -32,15 +32,12 @@ class Art extends React.Component {
     return (
         <Container>
           <Header as="h2" textAlign="center" inverted>Art</Header>
-          <Card.Group>
-            {this.props.fountains.map((fountain, index) => <Fountain key={index} fountain={fountain}/>)}
-          </Card.Group>
-          <Card.Content extra>
-            {this.props.fountains.map((fountain, index) => <FountainItem key={index} Fountains={Fountains}
+            <Card.Content>
+              {this.props.fountains.map((fountain, index) => <FountainItem key={index} Fountains={Fountains}
                                                                          fountain={fountain}
                                                                          Ratings={Ratings}
                                                                          rating={this.props.ratings}/>)}
-          </Card.Content>
+            </Card.Content>
         </Container>
     );
   }
