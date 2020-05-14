@@ -55,7 +55,7 @@ export default withTracker(() => {
   const subscription = Meteor.subscribe('Fountains');
   const subscription2 = Meteor.subscribe('Ratings');
   return {
-    fountains: Fountains.find({}).fetch(),
+    fountains: Fountains.find({ location: 'Keller' }).fetch(),
     ratings: Ratings.find({}).fetch(),
     ready: (subscription.ready() && subscription2.ready()),
   };
