@@ -33,9 +33,7 @@ class EditFountainAdmin extends React.Component {
             <AutoForm schema={FountainSchema} onSubmit={data => this.submit(data)} model={this.props.doc}>
               <Segment>
                 <TextField name='name'/>
-                <SelectField name='location'/>
                 <TextField name='image'/>
-                <SelectField name='type'/>
                 <TextField name='acceptance'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
