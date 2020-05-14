@@ -52,6 +52,26 @@
     {
       "name": "Fountain 01", "location": "Sinclair", "image": "/fountains/sinclair01.jpg", "type": "Water Bottle Refillable",
       "owner": "john@foo.com"
+    },
+    {
+      "name": "Fountain 01", "location": "Kuykendall", "image": "/fountains/placeholder.jpg",
+      "type": "Water Bottle Refillable", "owner": "john@foo.com"
+    },
+    {
+      "name": "Fountain 01", "location": "Moore", "image": "/fountains/placeholder.jpg",
+      "type": "Water Bottle Refillable", "owner": "john@foo.com"
+    },
+    {
+      "name": "Fountain 01", "location": "QLC", "image": "/fountains/placeholder.jpg",
+      "type": "Water Bottle Refillable", "owner": "john@foo.com"
+    },
+    {
+      "name": "Fountain 01", "location": "Keller", "image": "/fountains/placeholder.jpg",
+      "type": "Water Bottle Refillable", "owner": "john@foo.com"
+    },
+    {
+      "name": "Fountain 01", "location": "Campus Center", "image": "/fountains/placeholder.jpg",
+      "type": "Water Bottle Refillable", "owner": "john@foo.com"
     }
   ]
 }
