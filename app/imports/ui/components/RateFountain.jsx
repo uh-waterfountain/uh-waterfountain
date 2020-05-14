@@ -50,7 +50,7 @@ class RateFountain extends React.Component {
             }
           });
     } else {
-      this.props.Ratings.insert({ score: data.rating, owner: this.props.user, fountainId: this.props.fountainId },
+      this.props.Ratings.insert({ score: data.rating, owner: Meteor.user().username , fountainId: this.props.fountainId },
           (error) => {
             if (error) {
               swal('Error', error.message, 'error');
@@ -61,7 +61,6 @@ class RateFountain extends React.Component {
 }
 
 RateFountain.propTypes = {
-  owner: PropTypes.string.isRequired,
   fountainId: PropTypes.string.isRequired,
   ratingCheck: PropTypes.bool.isRequired,
   score: PropTypes.array.isRequired,
