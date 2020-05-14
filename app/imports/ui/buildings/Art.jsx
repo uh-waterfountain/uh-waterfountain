@@ -37,7 +37,7 @@ export default withTracker(() => {
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe('Fountains');
   return {
-    fountains: Fountains.find({ location: 'Art' }).fetch(),
+    fountains: Fountains.find({ location: 'Art', acceptance: 'accepted' }).fetch(),
     ready: subscription.ready(),
   };
 })(Art);

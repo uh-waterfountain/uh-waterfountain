@@ -31,11 +31,7 @@ Meteor.publish('Ratings', function publish() {
 
 /** This subscription publishes only the documents associated with the logged in user */
 Meteor.publish('Fountains', function publish() {
-  if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
-    return Fountains.find({ owner: username });
-  }
-  return this.ready();
+    return Fountains.find({});
 });
 
 /** This subscription publishes only the documents associated with the logged in user */
