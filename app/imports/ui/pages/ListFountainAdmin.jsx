@@ -1,13 +1,17 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Card, Grid, Image, Header, Loader } from 'semantic-ui-react';
+import { Container, Card, Grid, Image, Header, Loader, Button } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { Stuffs } from '../../api/stuff/Stuff';
+import { Fountains } from '../../api/fountain/Fountain';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListFountainAdmin extends React.Component {
 
+  removeItem(docID) {
+    console.log('item to delete is: ${docID}');
+    this.props.Fountains.remove(docID);
+  }
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
@@ -220,6 +224,25 @@ class ListFountainAdmin extends React.Component {
               </Card>
                 </Grid.Column>
               </Grid.Row>
+
+              <Grid.Row>
+                <Grid.Column>
+                  <Card>
+                    <Image size='mini' src='/fountains/placeholder.jpg' wrapped ui={false} />
+                    <Card.Content>
+                      <Card.Header>User Submitted Fountain</Card.Header>
+                      <Card.Description>
+                        Located: Floor 1
+                      </Card.Description>
+                    </Card.Content>
+                    <Card.Content extra>
+                      <Button className="ui basic button" icon onClick={() => this.removeItem(this.props.fountain._id) }>
+                        Delete
+                      </Button>
+                    </Card.Content>
+                  </Card>
+                </Grid.Column>
+              </Grid.Row>
             </Grid>
           </Container>
     );
@@ -228,7 +251,7 @@ class ListFountainAdmin extends React.Component {
 
 /** Require an array of Stuff documents in the props. */
 ListFountainAdmin.propTypes = {
-  stuffs: PropTypes.array.isRequired,
+  fountains: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -237,7 +260,7 @@ export default withTracker(() => {
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe('StuffAdmin');
   return {
-    stuffs: Stuffs.find({}).fetch(),
+    fountains: Fountains.find({}).fetch(),
     ready: subscription.ready(),
   };
 })(ListFountainAdmin);
