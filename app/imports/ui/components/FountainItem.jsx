@@ -7,7 +7,7 @@ import { _ } from 'meteor/underscore';
 import { withRouter, Link } from 'react-router-dom';
 import { Roles } from 'meteor/alanning:roles';
 import RateFountain from './RateFountain';
-import { Fountain } from '../../api/fountain/Fountain';
+import { Fountains } from '../../api/fountain/Fountain';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class FountainItem extends React.Component {
@@ -22,15 +22,15 @@ class FountainItem extends React.Component {
               <Grid.Column>
                 <Header as="h3" textAlign="left">{this.props.fountain.name}</Header>
                 <Header as="h4" textAlign="left">{this.props.fountain.location}</Header>
-                <Item.Extra>
+                <Card.Content extra>
                   <div className> Average Rating:
                     &nbsp; <Rating icon='star' maxRating={5} rating={this.getRating(this.props.fountain._id)}
                                    disabled/> &nbsp;
                     (Total Ratings:
                     {this.getRatingCount(this.props.Ratings.find({ fountainId: this.props.fountain._id }).count())})
                   </div>
-                </Item.Extra>
-                <Item.Extra>
+                </Card.Content>
+                <Card.Content extra>
                   <RateFountain user={Meteor.user().username} fountainId={this.props.fountain._id} Ratings=
                       {this.props.Ratings}
                                 score={_.where(_.where(this.props.rating,
@@ -39,7 +39,7 @@ class FountainItem extends React.Component {
                                 ratingCheck={_.contains(_.pluck(_.where(_.where(this.props.rating,
                                     { fountainId: this.props.fountain._id }),
                                     { owner: Meteor.user().username }), 'owner'), Meteor.user().username)} />
-                </Item.Extra>
+                </Card.Content>
               </Grid.Column>
             </Grid.Row>
           </Grid>
@@ -69,6 +69,7 @@ FountainItem.propTypes = {
   Ratings: PropTypes.object.isRequired,
   rating: PropTypes.object.isRequired,
   currentUser: PropTypes.string,
+  fountainId: PropTypes.string.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the
