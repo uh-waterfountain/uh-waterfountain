@@ -7,71 +7,71 @@
   "defaultFountains": [
     {
       "name": "Fountain 01", "location": "Art", "image": "/fountains/art01.jpg", "type": "Water Bottle Refillable",
-    "owner": "john@foo.com", "acceptance": "accepted"
+    "owner": "Meteor.user().username", "acceptance": "accepted"
     },
     {
       "name": "Fountain 02", "location": "Art", "image": "/fountains/art02.jpg", "type": "Water Bottle Refillable",
-      "owner": "john@foo.com", "acceptance": "accepted"
+      "owner": "Meteor.user().username", "acceptance": "accepted"
     },
     {
       "name": "Fountain 01", "location": "Bilger", "image": "/fountains/bilger01.jpg", "type": "Water Bottle Refillable",
-      "owner": "john@foo.com", "acceptance": "accepted"
+      "owner": "Meteor.user().username", "acceptance": "accepted"
     },
     {
       "name": "Fountain 02", "location": "Bilger", "image": "/fountains/bilger02.jpg", "type": "Water Bottle Refillable",
-      "owner": "john@foo.com", "acceptance": "accepted"
+      "owner": "Meteor.user().username", "acceptance": "accepted"
     },
     {
       "name": "Fountain 01", "location": "Busad", "image": "/fountains/busad01.jpg", "type": "Water Bottle Refillable",
-      "owner": "john@foo.com", "acceptance": "accepted"
+      "owner": "Meteor.user().username", "acceptance": "accepted"
     },
     {
       "name": "Fountain 02", "location": "Busad", "image": "/fountains/busad02.jpg", "type": "Water Bottle Refillable",
-      "owner": "john@foo.com", "acceptance": "accepted"
+      "owner": "Meteor.user().username", "acceptance": "accepted"
     },
     {
       "name": "Fountain 01", "location": "Hamilton", "image": "/fountains/hamilton01.jpg", "type": "Water Bottle Refillable",
-      "owner": "john@foo.com", "acceptance": "accepted"
+      "owner": "Meteor.user().username", "acceptance": "accepted"
     },
     {
       "name": "Fountain 01", "location": "HIG", "image": "/fountains/hig01.jpg", "type": "Water Bottle Refillable",
-      "owner": "john@foo.com", "acceptance": "accepted"
+      "owner": "Meteor.user().username", "acceptance": "accepted"
     },
     {
       "name": "Fountain 02", "location": "HIG", "image": "/fountains/hig02.jpg", "type": "Water Bottle Refillable",
-      "owner": "john@foo.com", "acceptance": "accepted"
+      "owner": "Meteor.user().username", "acceptance": "accepted"
     },
     {
       "name": "Fountain 01", "location": "POST", "image": "/fountains/post01.jpg", "type": "Water Bottle Refillable",
-      "owner": "john@foo.com", "acceptance": "accepted"
+      "owner": "Meteor.user().username", "acceptance": "accepted"
     },
     {
       "name": "Fountain 02", "location": "POST", "image": "/fountains/post02.jpg", "type": "Water Bottle Refillable",
-      "owner": "john@foo.com", "acceptance": "accepted"
+      "owner": "Meteor.user().username", "acceptance": "accepted"
     },
     {
       "name": "Fountain 01", "location": "Sinclair", "image": "/fountains/sinclair01.jpg", "type": "Water Bottle Refillable",
-      "owner": "john@foo.com",  "acceptance": "accepted"
+      "owner": "Meteor.user().username",  "acceptance": "accepted"
     },
     {
       "name": "Fountain 01", "location": "Kuykendall", "image": "/fountains/placeholder.jpg",
-      "type": "Water Bottle Refillable", "owner": "john@foo.com",  "acceptance": "accepted"
+      "type": "Water Bottle Refillable", "owner": "Meteor.user().username",  "acceptance": "accepted"
     },
     {
       "name": "Fountain 01", "location": "Moore", "image": "/fountains/placeholder.jpg",
-      "type": "Water Bottle Refillable", "owner": "john@foo.com",  "acceptance": "accepted"
+      "type": "Water Bottle Refillable", "owner": "Meteor.user().username",  "acceptance": "accepted"
     },
     {
       "name": "Fountain 01", "location": "QLC", "image": "/fountains/placeholder.jpg",
-      "type": "Water Bottle Refillable", "owner": "john@foo.com",  "acceptance": "accepted"
+      "type": "Water Bottle Refillable", "owner": "Meteor.user().username",  "acceptance": "accepted"
     },
     {
       "name": "Fountain 01", "location": "Keller", "image": "/fountains/placeholder.jpg",
-      "type": "Water Bottle Refillable", "owner": "john@foo.com",  "acceptance": "accepted"
+      "type": "Water Bottle Refillable", "owner": "Meteor.user().username",  "acceptance": "accepted"
     },
     {
       "name": "Fountain 01", "location": "Campus Center", "image": "/fountains/placeholder.jpg",
-      "type": "Water Bottle Refillable", "owner": "john@foo.com",  "acceptance": "accepted"
+      "type": "Water Bottle Refillable", "owner": "Meteor.user().username",  "acceptance": "accepted"
     }
   ]
 }
