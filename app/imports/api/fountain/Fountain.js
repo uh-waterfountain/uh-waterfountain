@@ -12,6 +12,7 @@ const FountainSchema = new SimpleSchema({
   image: String,
   owner: String,
   type: String,
+  acceptance: String,
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */

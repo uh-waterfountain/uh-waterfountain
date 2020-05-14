@@ -11,7 +11,6 @@ import ListStuff from '../pages/ListFountain';
 import ListFountainAdmin from '../pages/ListFountainAdmin';
 import AddFountain from '../pages/AddFountain';
 import Directory from '../pages/Directory';
-import EditStuff from '../pages/EditStuff';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
@@ -30,6 +29,7 @@ import Busad from '../buildings/Busad';
 import Hig from '../buildings/Hig';
 import Keller from '../buildings/Keller';
 import Map from '../pages/Map';
+import EditFountainAdmin from '../pages/EditFountainAdmin';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -47,7 +47,7 @@ class App extends React.Component {
               <ProtectedRoute path="/add" component={AddFountain}/>
               <ProtectedRoute path="/directory" component={Directory}/>
               <ProtectedRoute path="/map" component={Map}/>
-              <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
+              <ProtectedRoute path="/edit/:_id" component={EditFountainAdmin}/>
               <AdminProtectedRoute path="/admin" component={ListFountainAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route path="/post" component={Post}/>

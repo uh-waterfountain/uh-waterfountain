@@ -31,7 +31,8 @@ class AddFountain extends React.Component {
   submit(data, formRef) {
     const { name, location, image, type } = data;
     const owner = Meteor.user().username;
-    Fountains.insert({ name, location, image, type, owner },
+    const acceptance = 'pending';
+    Fountains.insert({ name, location, image, type, owner, acceptance },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
